@@ -28,6 +28,7 @@ function imageLoaded() {
         loader.hidden = true;
         initialLoad = false;
         count = 30; 
+        unsplashApiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`;
     } 
 }
 
