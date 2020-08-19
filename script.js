@@ -14,6 +14,12 @@ function setAttributes(element, attributes){
         element.setAttribute(key, attributes[key]);
     }
 }
+
+// Unsplash API URL 
+let count = 5;
+const apiKey = '3eL2yadZ1W5uXQViyC_N9T3KagXIfS2iqKD9poRuj-Q';
+const unsplashApiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`;
+
 //Check if all images were loaded
 function imageLoaded() {
     imagesLoaded++; 
@@ -60,18 +66,12 @@ function displayPhotos(){
     })
 }
 
-// Unsplash API URL 
-let count = 5;
-const apiKey = '3eL2yadZ1W5uXQViyC_N9T3KagXIfS2iqKD9poRuj-Q';
-const unsplashApiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${count}`;
 
 async function getUnsplashApiPhotos(){
     try{
         const response = await fetch(unsplashApiUrl);
         photosArray = await response.json();
-
         displayPhotos();
-
     }catch(error){
         console.log("Whoops! something went wrong", error)
     }
